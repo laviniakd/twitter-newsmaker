@@ -12,13 +12,14 @@ import java.io.*;
 
 public class NewsMaker {
 	
-	static final int CHAR_LIMIT = 280;
-	static final int TWEET_NUM = 100;
+	static final int CHAR_LIMIT = 280; //max number of characters in a tweet
+	static final int TWEET_NUM = 100; //number of tweets to generate
 	
 	public static void main(String[] args) throws FileNotFoundException, TwitterException {
 		
-		Scanner news = new Scanner(new File("hydratedtweets.txt"));
-		File tweets = new File("tweets1.txt");
+		Scanner news = new Scanner(new File("hydratedtweets.txt")); 
+			//raw JSON file containing all hydrated tweets
+		File tweets = new File("tweets1.txt"); //generated tweets
 
 		System.out.println(System.currentTimeMillis());
 		List<String> jsons = makeJsons(news);
