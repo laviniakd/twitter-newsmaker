@@ -18,12 +18,10 @@ public class NewsMaker {
 	public static void main(String[] args) throws FileNotFoundException, TwitterException {
 		
 		Scanner news = new Scanner(new File("hydratedtweets.txt")); 
-			//raw JSON file containing all hydrated tweets
-		File tweets = new File("tweets1.txt"); //generated tweets
+			//representation of raw JSON file containing all hydrated tweets
+		File tweets = new File("tweets.txt"); //generated tweets
 
-		System.out.println(System.currentTimeMillis());
 		List<String> jsons = makeJsons(news);
-		System.out.println(System.currentTimeMillis());
 		
 		//makes list of tweet text using raw JSON
 		List<String> tweetTexts = new ArrayList<String>();
@@ -36,6 +34,7 @@ public class NewsMaker {
 			}
 		}
 		
+		//prints tweets to new tweet file
 		PrintStream p = new PrintStream(tweets);
 		NewsNGram gram = makeNGram(tweetTexts);
 		List<String> madeTweets = makeTweets(gram);
